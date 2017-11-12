@@ -1,0 +1,33 @@
+<div class="col-sm-6 col-sm-offset-6 col-xs-12">
+	<input type="text" class="form-control" placeholder="Search by first name..." [(ngModel)]="searchString">
+</div>
+<div class="container">
+	<table class="table table-striped">
+	    <thead>
+	      <tr>
+	        <th>Firstname</th>
+	        <th>Lastname</th>
+	        <th>Phone</th>
+	        <th></th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr *ngFor="let contact of contacts | filterList:'firstName':searchString; let contactIndex= index">
+	        <td> {{ contact.firstName }} </td>
+	        <td> {{ contact.lastName }} </td>
+	        <td> {{ contact.phone }} </td>
+	        <td> 
+	        	<button type="button" class="btn btn-danger" (click)="deleteContact(contactIndex)">
+	        		Delete		
+	        	</button>
+	        	<button type="button" class="btn btn-danger" (click)="editContact(contactIndex)">
+	        		Edit		
+	        	</button> 
+	        </td>
+	      </tr>
+	      <tr *ngIf="!contacts || contacts.length <= 0 ">
+	      	<td colspan="4" class="text-center">No Records found!</td>
+	      </tr>
+	    </tbody>
+	  </table>
+</div>

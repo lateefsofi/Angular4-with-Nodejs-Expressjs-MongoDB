@@ -1,0 +1,14 @@
+.form-builder-container{
+	display: block;
+	float: left;
+	padding: 10px;
+	background-color: #ccc;
+	min-height: 562px;
+}
+.controls-container{
+	width: 28%;
+	margin-right: 2%;
+}
+.form-container{
+	width: 70%;
+}

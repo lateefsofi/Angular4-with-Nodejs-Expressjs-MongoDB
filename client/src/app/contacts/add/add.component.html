@@ -1,0 +1,42 @@
+<h3 class="text-center">Add New Contact!</h3>
+<div class="container">
+	<form [formGroup]="addContactForm" (ngSubmit)="onAddForm()">
+		<div class="form-group">
+			<label>First Name</label>
+			<input type="text" 
+				class="form-control" 
+				formControlName="firstName" 
+				name="firstName" 
+				OnlyAlphabets>
+			<p *ngIf="addContactForm.get('firstName').hasError('required') && addContactForm.get('firstName').touched" class="help-block">Please enter first name!</p>
+		</div>
+		<div class="form-group">
+			<label>Last Name</label>
+			<input type="text" 
+				class="form-control" 
+				formControlName="lastName" 
+				name="lastName" 
+				OnlyAlphabets>
+			<p *ngIf="addContactForm.get('lastName').hasError('required') && addContactForm.get('lastName').touched" class="help-block">Please enter last name!</p>
+		</div>
+		<div class="form-group">
+			<label>Phone</label>
+			<input type="text" 
+				class="form-control" 
+				formControlName="phone" 
+				name="phone" 
+				OnlyNumbers>
+			<p 
+				*ngIf="(addContactForm.get('phone').hasError('required')  || 
+						addContactForm.get('phone').hasError('minlength') || 
+						addContactForm.get('phone').hasError('maxlength'))&& 
+						addContactForm.get('phone').touched" 
+						class="help-block">
+						Please enter 10 digit phone number!
+			</p>
+		</div>
+		<div class="form-group text-right">
+			<button class="btn btn-primary" type="submit"> {{ isUpdate? 'Update': 'Add' }} </button>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,36 @@
+<div class="form-builder-container controls-container">
+	<h3 class="text-center">Draggable Controls</h3>
+	<hr>
+	<div class="col-xs-12">
+		<form name="draggableForm" #draggableForm="ngForm">
+		    <div [draggableElement]="{zone: 'zone', data: 'Textbox'}"  type="LABEL" class="form-group" >
+				<label>	Label</label>
+			</div>
+			<div [draggableElement]="{zone: 'zone', data: 'Textbox'}"  type="TEXT_BOX" class="form-group" >
+				<input type="text" class="form-control"  name="textBox">
+			</div>
+			<div [draggableElement]="{zone: 'zone', data: 'Textbox'}" type="TEXT_AREA" class="form-group" >
+					<textarea class="form-control">	</textarea>
+			</div>
+			<div [draggableElement]="{zone: 'zone', data: 'Textbox'}" type="RADIO" class="form-group" >
+					<label><input type="radio"> Radio </label>
+			</div>
+			<div [draggableElement]="{zone: 'zone', data: 'Textbox'}" type="CHECKBOX" class="form-group" >
+					<label><input type="checkbox"> Checkbox </label>
+			</div>
+			<div [draggableElement]="{zone: 'zone', data: 'Textbox'}" type="DROPDOWN" class="form-group" >
+					<select class="form-control">
+					</select>
+			</div>
+		</form>
+	</div>
+</div>
+<div class="form-builder-container form-container container">
+	<h3 class="text-center">Form</h3>
+	<hr>
+	<div class="form" >
+		<form name="dropForm" dropTarget (onDrop)="onDrop($event)" style="height:500px">
+
+		</form>
+	</div>
+</div>
